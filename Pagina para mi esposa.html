@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Amor de Mi Vida</title>
+    <style>
+        /* Estilo global */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Asegura que la página ocupe toda la altura de la ventana */
+            font-family: Arial, sans-serif; /* Fuente para el texto */
+            color: white; /* Color del texto */
+            display: flex;
+            justify-content: center; /* Centra el contenido horizontalmente */
+            align-items: center; /* Centra el contenido verticalmente */
+            text-align: center; /* Asegura que el texto se vea centrado */
+            background-color: #000; /* Fondo negro como fallback */
+        }
+
+        /* Página inicial */
+        #page1 {
+            background-image: url('https://i.ibb.co/gM25nBL/IMG-20240607-WA0000.jpg');
+            background-size: contain; /* Ajusta la imagen sin recortarla */
+            background-position: center center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Página secundaria */
+        #page2 {
+            background-image: url('https://i.ibb.co/DCSypSY/IMG-20240622-WA0039-1.jpg');
+            background-size: contain; /* Ajusta la imagen sin recortarla */
+            background-position: center center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            display: none; /* Esta página está oculta inicialmente */
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* Estilo para el botón */
+        .btn {
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro translúcido para el botón */
+            color: white;
+            font-size: 1.2em;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            max-width: 80%; /* Evita que el botón sea demasiado grande en pantallas pequeñas */
+            margin: 10px auto;
+        }
+
+        .btn:hover {
+            background-color: rgba(0, 0, 0, 0.9); /* Cambia el color del fondo al pasar el ratón */
+        }
+
+        /* Estilo para el mensaje */
+        .message {
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro translúcido */
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.5em;
+            max-width: 90%;
+            margin: 20px auto;
+        }
+
+        /* Contenido específico de la segunda página */
+        .content {
+            display: none; /* Ocultamos el contenido inicialmente */
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2em;
+            max-width: 90%;
+            margin: 10px auto;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .photo-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .photo-gallery .photo-item {
+            text-align: center;
+            color: white;
+        }
+
+        /* Media Queries para hacer la página responsive */
+        @media (max-width: 768px) {
+            /* Estilos para pantallas pequeñas (tabletas y móviles en modo vertical) */
+            .btn {
+                font-size: 1em;
+                padding: 10px 20px;
+                width: 90%;
+            }
+
+            .message {
+                font-size: 1.2em;
+                padding: 15px;
+            }
+
+            .content {
+                font-size: 1em;
+                padding: 15px;
+            }
+
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Estilos para pantallas aún más pequeñas (móviles) */
+            .btn {
+                font-size: 0.9em;
+                padding: 8px 16px;
+                width: 95%;
+            }
+
+            .message {
+                font-size: 1em;
+                padding: 12px;
+            }
+
+            .content {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Página 1 (Página inicial) -->
+    <div id="page1">
+        <button class="btn" onclick="showPage2()">¿Quieres saber quién es el amor de mi vida? <br> Presiona aquí para admirar su belleza</button>
+    </div>
+
+    <!-- Página 2 (Página secundaria con nuevo fondo) -->
+    <div id="page2">
+        <div class="message">
+            ¡Aquí está la belleza del amor de mi vida, Feliz cumpleaños mi oruguitaaa!
+        </div>
+
+        <!-- Opciones para contenido adicional -->
+        <button class="btn" onclick="showContent('poema')">Poema para mi Querida Esposa</button>
+        <button class="btn" onclick="showContent('fotos')">Fotos de mi esposita</button>
+        <button class="btn" onclick="showContent('salud')">Qué hacer si mi esposa se siente mal</button>
+
+        <!-- Botón para volver atrás -->
+        <button class="btn" onclick="showPage1()">Volver atrás</button>
+
+        <!-- Contenido específico -->
+        <div id="poema" class="content">
+            <h3>Poema para mi Querida Esposa</h3>
+            <p>Te quiero como se quieren ciertas cosas oscuras,
+                secretamente, entre la sombra y el alma<br>Es tan corto el amor, y es tan largo el olvido.<br>"Lo esencial es invisible a los ojos. Mi niña yo por ti hago lo que sea necesario, el momento que creí que te perdía se me vino el mundo abajo, por eso niña linda ten por seguro que por ti lucharé hasta el final, dejando el orgullo de lado dejando todo de lado por ti, jamás habrá algo más importante que tu felicidad, para mi tu felicidad lo es todo. Te amo mucho mi niña, pronto seremos espositos y podremos vivir juntos viendonos cada día, teniendo más tiempo juntos y viviendo felices por el resto de nestras vidas amor es una promesa de espositos. No soy el mejor novio mi amor pero te prometo que cambiaré y mejoraré en todo lo que sea necesario, yo contigo me quedo si o si mi amor jamás permitiré que el amor se acabe, y de a poco cambiaremos las cositas que te lastiman mi amor, entre los dos nos sanaremos por completo, aca te dejó unas palabras amor que al escucharlas me hacen pensar solo en ti! Me sentí como en las nubes, y escuche los sonidos más celestiales que jamás habia oído era algo tan exquisito, me perdí en tu mirada cuando estabamos pegados, senti como si fueras la pieza que me faltaba, que me completa encajamos a la perfección desde la primera vez, sentía que mi alma estaba ardiendo una llama que antes no la había experimentado, en ese momento solo deseaba poder parar el tiempo para congelar ese momento tan hermoso, podía dejar esta vida ir al paraíso y aun así no sería tan hermoso como lo que estaba viviendo, y si no te diste cuenta aún fue cuando hicimos el amor, completaste mi ser y me diste luz, Eres mi Complemento, te amo Yoiss mi esposa. Feliz cumpleaños mi niña te prometo que me encargaré de hacer que todos tus cumpleaños sean especiales, espero que te guste este regalito mi amor, me esforcé mucho mi amor y solo espero poder alegrar este día que es solo tuyo!! Una vueltita más al sol, gracias por hacerme tan feliz mi niña hoy la pasaremos increíble!!!</p>
+        </div>
+
+        <div id="fotos" class="content">    
+            <h3>Fotos de mi Esposita</h3>
+            <div class="photo-gallery">
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/JHMCRDx/yoiss.png" alt="Café 1">
+                    <p>En esta foto mi esposita sale tan hermosa con esa mirada que te envuelve, te enloquece y te obsesiona definitivamente esa carita no se puede olvidar! Me encanta como te quedo la chompita mi amor!</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/q59HMFM/IMG-20240622-WA0002.jpg" alt="Café 2">
+                    <p>No me cansaré de decir que tus ojos son algo tan sensual, y ni que decir de tu boquita es tan preciosa, me encanta el color de tus labios mi amor, y la forma que tiene es tan perfecta que parece hecha a pedido!</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/9WBVwN9/IMG-20240607-WA0003.jpg" alt="Café 3">
+                    <p>Con los lentes que tierna te ves mi niña, con tu ropita de hostpital con tus ojitos cansados pero aun así tan preciosaaa!! Estoy tan orgulloso de mi doctorita que siempre se preocupa por mi, me cuida y me sana tanto emocional como fisicamente y que decir de tu mano para pinchar, te adoroooooo!</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/P6M0QFr/IMG-20240607-WA0001.jpg" alt="Café 4">
+                    <p>Acá mi esposita con ropita deportiva con ese abdomen tan deliiii y tu top que sexy te queda amor no envano es la creatina jiji</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/SxxGJFF/Whats-App-Image-2024-11-14-at-21-36-07.jpg" alt="Café 5">
+                    <p>Mi reina aun recuerdo cuando me mandaste esa fotito, me encanta como combinas tus ovniiiis, todo rosaditooo te queda espectacular mi amor te hace ver super tierna, y lo combinas tan perfecto con tu bolso y pantalon negro definitivamente necesito clases para vestirme amor tienes que enseñarme!!</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/3WVH388/Whats-App-Image-2024-11-14-at-21-36-06-1.jpg" alt="Café 6">
+                    <p>Amor esta foto me gusto muchisiiiiiimo te dije por como el sol hace ver tu cabellito de color cafe clarito tu color natural mi amor y tus cejitas tan bonitas y como siemprpe tus ojos se roban protagonismo HERMOSAAA!</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/Pjy7Lyw/Whats-App-Image-2024-11-14-at-21-36-06-2.jpg" alt="Café 7">
+                    <p>Amor no puedo con esta fotito te juro que es la mejor que tienes mi vida no se porque me encanta tantooooo, te dije muchas veces esta es mi foto favorita mi amor no entiendo el porque no puedo decifrarlo pero tiene algo tan llamativo tal vez tus claviculas o tu cuello, no lo se amor pero esta foto me tiene embobado!!</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/Rp1zgws/Whats-App-Image-2024-11-14-at-21-36-07-2.jpg" alt="Café 8">
+                    <p>Amooooor esta fotito me gustooo porque pareces hippie XD </p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/fXwQmR3/Whats-App-Image-2024-11-14-at-21-36-07-3.jpg" alt="Café 9">
+                    <p>Pequeña esta foto me transporta a las primeras veces que nos estabamos conociendo, me llena de nostalgia y sigo sin creer como puedes ser mi noviaaa! Mi debilidad ante esta foto y ante ti en realidad son tus ojos y tus labios pero en esta foto te pasaste amor con ese labial rojo me dejaste estupidoooooooo, no puedo dejar de verlaaa!!</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/WB4kt28/Whats-App-Image-2024-11-14-at-21-36-07-1.jpg" alt="Café 10">
+                    <p>Esta fotito no la cambio por nada mi amor aca se refleja  perfecto lo que te digo de tu hoyuelooo me re gusta por que es unico amooooor y te queda tan bien y lo complementas con tu lenguita me re gusta todo de ti hermosaaaaa necesito que me des besitos con esa lenguita por favor!</p>
+                </div>
+                <!-- Nuevas fotos añadidas -->
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/pJc7f4N/Whats-App-Image-2024-11-14-at-21-36-08-2.jpg" alt="Café 11">
+                    <p>Mi oruguita recuerdas el dia que te envolví y literal te traté como mi bebé porque eso eres, amé cuidarte ese día se sentía tan bonito poder darte comidita en la boquita llenarte de besos, ponerte tus programas y saber que mi niña por fin estaba descansando, por fin estaba relajada, nunca había hecho algo así por nadie amor me encanta consentirte dejame hacerlo todo el tiempo!</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/2PSTZRR/Whats-App-Image-2024-11-14-at-21-36-08-1.jpg" alt="Café 12">
+                    <p>Amor jamás había hecho alguna cosa así por nadie pero no se contigo quiero hacerlo todo ese día te cocine carne con pancito amor y devoramos todito!! el toque especial fue ponerle amor en todo momento, y comer contigo en la camita solo riéndonos no tiene precio mi niña</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/y66MMpf/Whats-App-Image-2024-11-14-at-21-36-06.jpg" alt="Café 13">
+                    <p>Amor estas son las ultimas fotitos que tengo, me encantó tanto y me emocioné jodido cuando me dijiste que estabas cerca y me gusto tanto el camino porque aunque estuvieramos cada uno en moto igual ibamos hablandonos era tan hermoso verte con tu celular en la boca eres la personita más tienra que conozcooo, ese día la comida fue más rica de lo normal porque estabas conmigo pues todo lo mejoras y lo haces especial pequeña</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://i.ibb.co/6wLhgYd/Whats-App-Image-2024-11-14-at-21-35-10.jpg" alt="Café 14">
+                    <p>Mi niña esta es la ultima fotito que me mandaste hace ratito, y me gusto tanto que volvi a configurar la página para tenerla porque sales muy muy bieeen eres super guapa re fotogénica me muero de amor cuando me mandas fotitos, por favor mandamelas siempre mi niña, eres mi tesorito te re amo mi vida!!</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="salud" class="content">
+            <h3>Qué hacer si mi esposa se siente mal</h3>
+            <p>Para empezar mi esposita no puede sentirse mal jamás <br>En caso que mi niña se ponga malita solo debe hacer lo siguiente. Primer paso: Llamar a este número 65391199 ese sera el número de emergencia, este número atiende las 24 horas todos los días de la semana sin importar nada tú solo debes llamar mi vida Una vez que llames a este numero solo debes contar todo lo que pasó y ten por seguro que ese numero se encargara de hacerte sentir mucho mejor, te consentira, te llevará tus gustitos, y si no quieres hacer nada o quieres estar sola también se entiende, pero aunque a la distancia estará haciendote compañia y dándote animos recordandote a cada instante lo valiosa que eres, que importas más de lo que crees, para hacerte sentir mejor tambíen hay la opción de hacerte oruguita y darte comidita y chocapic en la boquita mientras se pone los programas que te gustan, que son los programas de Perú, y por último una vez que la princesa este mejor se pondrá ruido de lluvia para que la niña pueda dormir porque le encanta ese ruido para poder dormir hasta el dia siguiente, y todo este proceso es muy poco costoso, el costo de este servicio es de tan solo 1 beso! Así que este numero estara esperando tu llamada todas las veces que sean necesarias. Por algo soy tu esposo y no permitire que tengas bajones, te amo mi nenaaa!</p>
+        </div>
+    </div>
+
+    <script>
+        // Función para mostrar la segunda página y cambiar el fondo
+        function showPage2() {
+            // Ocultamos la página 1
+            document.getElementById('page1').style.display = 'none';
+            // Mostramos la página 2
+            document.getElementById('page2').style.display = 'block';
+            // Cambiamos el fondo del body
+            document.body.style.backgroundImage = "url('https://i.ibb.co/vBJWmG9/IMG-20240607-WA0002.jpg')";
+        }
+
+        // Función para mostrar la primera página y volver al fondo original
+        function showPage1() {
+            // Ocultamos la página 2
+            document.getElementById('page2').style.display = 'none';
+            // Mostramos la página 1
+            document.getElementById('page1').style.display = 'block';
+            // Cambiamos el fondo del body
+            document.body.style.backgroundImage = "url('https://i.ibb.co/K6Mdvf4/IMG-20240620-WA0051.jpg')";
+        }
+
+        // Función para mostrar el contenido específico de acuerdo al botón presionado
+        function showContent(content) {
+            // Ocultamos todos los contenidos
+            document.getElementById('poema').style.display = 'none';
+            document.getElementById('fotos').style.display = 'none';
+            document.getElementById('salud').style.display = 'none';
+
+            // Mostramos el contenido seleccionado
+            document.getElementById(content).style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
